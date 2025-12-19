@@ -1,0 +1,132 @@
+.voice-controls {
+  background: linear-gradient(135deg, rgba(16, 163, 127, 0.1) 0%, rgba(16, 163, 127, 0.05) 100%);
+  border-top: 2px solid var(--accent-primary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.voice-controls-content {
+  max-width: 48rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.voice-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.voice-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-icon.pulsing {
+  animation: voicePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes voicePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 163, 127, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(16, 163, 127, 0);
+  }
+}
+
+.voice-text {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.voice-progress {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--bg-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), #0d8f6f);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  min-width: 40px;
+  text-align: right;
+}
+
+.stop-voice-btn {
+  padding: 0.5rem 1rem;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stop-voice-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+.stop-voice-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .voice-controls-content {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .voice-status {
+    justify-content: center;
+  }
+
+  .stop-voice-btn {
+    justify-content: center;
+  }
+}

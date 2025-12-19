@@ -1,0 +1,62 @@
+.voice-button {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.voice-button:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: scale(1.05);
+}
+
+.voice-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.voice-button.recording {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+  }
+}
+
+.recording-pulse {
+  animation: pulseIcon 0.8s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+}
+
+/* Active state */
+.voice-button:active:not(:disabled) {
+  transform: scale(0.95);
+}
